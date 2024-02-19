@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Button } from "./Button";
 
-function App() {
+export const App = () => {
+  const [step, setStep] = useState(1);
+  const [counterValue, setCounterValue] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>Counter value {counterValue}</div>
+      <span>Step</span>
+      <input value={step} type="range" min="1" max="10" />
+      <span>{step}</span>
+      <br />
+      <Button>Increment</Button>
+      <Button>Decrement</Button>
     </div>
   );
-}
-
-export default App;
+};
